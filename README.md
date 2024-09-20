@@ -91,7 +91,7 @@ python -m app.api.api
 
 #### Примеры запросов к API
 
-Все маршруты API имеют префикс /api/v1. Ниже приведены примеры запросов для работы с валютными парами.
+Ниже приведены примеры запросов для работы с валютными парами.
 
 - Создание валютной пары
 
@@ -105,7 +105,7 @@ URL: /currency_pairs/
 
 
 ```
-curl -X POST http://localhost:8000/api/v1/currency_pairs/ \
+curl -X POST http://localhost:8080/currency_pairs/ \
      -H "Content-Type: application/json" \
      -d '{
            "pair": "BTC/USDT",
@@ -128,7 +128,7 @@ URL: /currency_pairs/
 
 
 ```
-curl -X GET http://localhost:8000/currency_pairs/
+curl -X GET http://localhost:8080/currency_pairs/
 ```
 
 - Получение валютной пары по ID
@@ -143,7 +143,7 @@ URL: /currency_pairs/{pair_id}
 
 
 ```
-curl -X GET http://localhost:8000/api/v1/currency_pairs/1
+curl -X GET http://localhost:8080/currency_pairs/1
 ```
 
 - Обновление валютной пары
@@ -157,7 +157,7 @@ URL: /currency_pairs/{pair_id}
 Пример запроса:
 
 ```
-curl -X PUT http://localhost:8000/api/v1/currency_pairs/1 \
+curl -X PUT http://localhost:8080/currency_pairs/1 \
      -H "Content-Type: application/json" \
      -d '{
            "pair": "BTC/USDT",
@@ -178,4 +178,4 @@ URL: /currency_pairs/{pair_id}
 
 Пример запроса:
 
-curl -X DELETE http://localhost:8000/currency_pairs/1
+curl -X DELETE http://localhost:8080/currency_pairs/1
