@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "licorice"
+version = "0.1.0"
+description = ""
+authors = ["leeroymk <demonic90@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiohttp = "^3.10.5"
+
+
+[tool.poetry.group.db.dependencies]
+tortoise-orm = "^0.21.6"
+asyncpg = "^0.29.0"
+
+
+[tool.poetry.group.lint.dependencies]
+pre-commit = "^3.8.0"
+flake8 = "^7.1.1"
+ruff = "^0.6.5"
+
+
+[tool.poetry.group.schedule.dependencies]
+schedule = "^1.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
