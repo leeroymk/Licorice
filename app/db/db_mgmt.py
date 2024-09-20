@@ -52,35 +52,3 @@ async def check_max_price(pair, new_max_price):
         row.max_price = new_max_price
         return new_max_price
     return None
-
-
-async def create_currency_pair(pair, exchange, price, min_price, max_price):
-    await CurrencyPair.create(
-        pair=pair,
-        exchange=exchange,
-        price=price,
-        min_price=min_price,
-        max_price=max_price,
-    )
-
-
-async def get_currency_pair(pair):
-    return await CurrencyPair.get_or_none(pair=pair)
-
-
-async def get_all_currency_pairs():
-    return await CurrencyPair.all()
-
-
-async def update_currency_pair(pair, **kwargs):
-    currency_pair = await CurrencyPair.get_or_none(pair=pair)
-    if currency_pair:
-        for key, value in kwargs.items():
-            setattr(currency_pair, key, value)
-        await currency_pair.save()
-
-
-async def delete_currency_pair(pair):
-    currency_pair = await CurrencyPair.get_or_none(pair=pair)
-    if currency_pair:
-        await currency_pair.delete()

@@ -1,4 +1,3 @@
-import asyncio
 import datetime
 
 from tortoise import Tortoise
@@ -7,6 +6,7 @@ from app.db.config import init_db
 from app.db.db_mgmt import compare_price, get_previous_price, save_to_db
 
 from app.services.exchange_api import get_all_prices
+from app.services.scheduler import run_scheduler
 from app.services.smtp import send_email
 from app.utils import form_message, get_total_cash, write_to_csv, setup_logging
 
@@ -47,4 +47,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    run_scheduler()

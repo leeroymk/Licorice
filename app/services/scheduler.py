@@ -1,14 +1,18 @@
 import asyncio
+import logging
 import schedule
 import time
+from app.main import main
 
 
 def job():
-    asyncio.run(())
+    logging.info("Запускаем парсинг криптовалют")
+    asyncio.run(main())
 
 
-schedule.every(10).minutes.do(job)
+def run_scheduler():
+    schedule.every().hour.do(job)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
